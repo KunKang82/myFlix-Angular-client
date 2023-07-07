@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/internal/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'myflix-movie-api.herokuapp.com/movies';
+const apiUrl = 'https://myflix-movie-api.herokuapp.com/movies/';
 @Injectable({
   providedIn: 'root',
 })
@@ -167,7 +166,7 @@ export class FetchApiDataService {
   }
 
   // Non-typed response extraction
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: any): any {
     const body = res;
     return body || {};
   }
@@ -180,6 +179,20 @@ export class FetchApiDataService {
         `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
       );
     }
-    return throwError('Something bad happened; please try again later.');
-  }
+    return throwError(() => {
+      new Error('Something bad happened; please try again later.')
+    });
+    // return throwError('Something bad happened; please try again later.');
+  }  
+  // private handleError(error: HttpErrorResponse): Observable<never> {
+  //   if (error.error instanceof ErrorEvent) {
+  //     console.error('Some error occurred:', error.error.message);
+  //   } else {
+  //     console.error(`Error Status code ${error.status}, Error body is: ${error.error}`);
+  //   }
+  //   return new Observable<never>((observer) => {
+  //     observer.error('Something bad happened; please try again later.');
+  //     observer.complete();
+  //   });
+  // }
 }

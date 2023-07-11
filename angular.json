@@ -101,9 +101,10 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/myFlix-Angular-client/"
+            "baseHref": "/myFlix-Angular-client/",
+            "repo": "https://github.com/KunKang82/myFlix-Angular-client.git"
           }
-        }
+        }        
       }
     }
   }

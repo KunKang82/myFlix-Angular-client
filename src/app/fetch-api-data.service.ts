@@ -123,17 +123,28 @@ export class FetchApiDataService {
   }
 
   // Making the api call for the edit user endpoint
-  editUser(updatedUser: any): Observable<any> {
+  // editUser(updatedUser: any): Observable<any> {
+  //   const token = localStorage.getItem('token');
+  //   const userName = localStorage.getItem('user');
+  //   return this.http
+  //     .patch(apiUrl + 'users/' + userName, updatedUser, {
+  //       headers: new HttpHeaders({
+  //         Authorization: 'Bearer ' + token,
+  //       }),
+  //     })
+  //     .pipe(map(this.extractResponseData), catchError(this.handleError));
+  // }
+  editUser(username: string, updatedUser: any): Observable<any> {
     const token = localStorage.getItem('token');
-    const userName = localStorage.getItem('user');
     return this.http
-      .patch(apiUrl + 'users/' + userName, updatedUser, {
+      .patch(apiUrl + 'users/' + username, updatedUser, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
+  
 
   // Making the api call for the delete user endpoint
   deleteUser(): Observable<any> {

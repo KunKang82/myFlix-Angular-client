@@ -248,7 +248,7 @@ export class FavoriteMoviesComponent {
       data: {
         Name: name,
         Bio: bio,
-        Birth: birthday,
+        Birthyear: birthday,
       },
       width: '400px',
     });

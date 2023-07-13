@@ -11,8 +11,8 @@ export class DirectorComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
     public data: {
       Name: string;
-      Bio: string;
       Birthyear: string;
+      Bio: string;
     }
   ) {}
 

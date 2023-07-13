@@ -2,7 +2,7 @@
 <div class="favorite-movies-view">
     <mat-card *ngFor="let movie of favoriteMovies;" class="movie-card">
         <mat-card-header>
-        <mat-card-title>{{movie.Title}}</mat-card-title>
+            <mat-card-title>{{movie.Title}}</mat-card-title>
             <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
         </mat-card-header>
         <img src="{{ movie.ImageUrl }}" alt="{{movie.Title}}"/>

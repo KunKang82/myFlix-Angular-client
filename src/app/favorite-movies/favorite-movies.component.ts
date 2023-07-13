@@ -254,7 +254,7 @@ export class FavoriteMoviesComponent {
     });
   }
 
-   /**
+  /**
    * Opens dialog to display movie details
    * @param title of movie
    * @param description of movie

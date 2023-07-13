@@ -5,8 +5,11 @@
 }
 
 mat-card {
-  background-color: #ccc;
+  // background-color: #ccc;
   margin: 5px;
+  border: 2px solid black;
+  background: linear-gradient(to right, #000000, #434343);
+  color: white;
 }
 
 mat-dialog-content {

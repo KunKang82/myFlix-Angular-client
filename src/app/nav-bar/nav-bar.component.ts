@@ -35,7 +35,7 @@ export class NavBarComponent implements OnInit {
    * token and user data is cleared from local storage
    */
   logout(): void {
-    this.router.navigate(['welcome']);
     localStorage.clear();
+    this.router.navigate(['welcome']);
   }
 }

@@ -96,24 +96,35 @@ export class MovieCardComponent {
       }
     }
 
-    openGenre(genre: any): void {
+    openGenre(name: string, description: string): void {
         this.dialog.open(GenreComponent, {
             maxWidth: "600px",
-            data: genre
+            data: {
+              Name: name,
+              Description: description
+            }
         })
     }
 
-    openDirector(director: any): void {
+    openDirector(name: string, bio: string, birthyear: string): void {
         this.dialog.open(DirectorComponent, {
             maxWidth: "600px",
-            data: director
+            data: {
+              Name: name,
+              Bio: bio,
+              Birthyear: birthyear
+            }
         })
     }
 
-    openMovie(movie: any): void {
+    openMovie(title: string, description: string, year: string): void {
         this.dialog.open(MovieDetailsComponent, {
             maxWidth: "600px",
-            data: movie
+            data: {
+              Title: title,
+              Description: description,
+              Year: year
+            }
         })
     }
 }

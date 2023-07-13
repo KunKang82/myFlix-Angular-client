@@ -1,13 +1,14 @@
-<p>director works!</p>
 <mat-card class="director-dialog">
-  <mat-card-title class="director-dialog-title">{{ data.Name }}</mat-card-title>
+  <mat-card-title class="director-dialog-title">
+    <h3>{{ data.Name }}</h3>
+  </mat-card-title>
   <br />
   <mat-dialog-content class="director-dialog-content">
-    <b>Birthday: </b>{{ data.Birth }}
+    <b>Birthday: </b>{{ data.Birthyear }}
     <br />
     <b>Bio: </b>{{ data.Bio }}
   </mat-dialog-content>
-  <mat-card-actions class="director-actions">
+  <!-- <mat-card-actions class="director-actions"> -->
     <button
       class="director-close-button"
       mat-stroked-button
@@ -15,7 +16,7 @@
       mat-dialog-close
       color="primary"
     >
-      X
+    Close
     </button>
-  </mat-card-actions>
+  <!-- </mat-card-actions> -->
 </mat-card>

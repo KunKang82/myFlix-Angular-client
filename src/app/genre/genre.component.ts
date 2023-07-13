@@ -20,9 +20,9 @@ export class GenreComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
-      Name: string;
-      Description: string;
-    }
+        Name: string;
+        Description: string;
+      }
   ) {}
 
    /** this function implements OnInit when the component is initialized */

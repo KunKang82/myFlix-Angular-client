@@ -45,37 +45,12 @@ export class MovieCardComponent {
         });
     }
 
-    // getFavMovies(): void {
-    //     this.fetchApiData.getFavMovies(localStorage.getItem("user") || "").subscribe((resp: any) => {
-    //         this.favoriteMovies = resp;
-    //         return this.favoriteMovies;
-    //     })
-    // }
     getFavMovies(): void {
       this.fetchApiData.getFavMovies().subscribe((resp: any) => {
         this.favoriteMovies = resp;
       });
     }
 
-    // toggleFavorite(id: string): void {
-    //     if (this.favoriteMovies.includes(id)) {
-    //         // Remove from favorites
-    //         this.fetchApiData.deleteFavMovie(localStorage.getItem("user") || "", id).subscribe((resp: any) => {
-    //             this.snackBar.open("Successfully removed movie from favorites", 'OK', {
-    //                 duration: 4000
-    //             });
-    //             this.getFavMovies();
-    //         });
-    //     } else {
-    //         // Add to favorites
-    //         this.fetchApiData.addFavMovie(localStorage.getItem("user") || "", id).subscribe((resp: any) => {
-    //             this.snackBar.open("Successfully added movie to favorites", 'OK', {
-    //                 duration: 4000
-    //             });
-    //             this.getFavMovies();
-    //         });
-    //     }
-    // }
     toggleFavorite(id: string): void {
       if (this.favoriteMovies.includes(id)) {
         // Remove from favorites

@@ -56,7 +56,11 @@ registerUser(): void {
     this.snackBar.open('user registered successfully!', 'OK', {
         duration: 2000
     });
-    // this.router.navigate(['movies']);
+    this.fetchApiData.userLogin(this.userData).subscribe((response) => {
+      localStorage.setItem('user', response.user.Username);
+      localStorage.setItem('token', response.token);
+      this.router.navigate(['movies']);
+    });
     }, (response) => {
       console.log(response);
       this.snackBar.open(response, 'OK', {
@@ -64,83 +68,4 @@ registerUser(): void {
       });
     });
   }
-
-// registerUser(): void {
-//   this.fetchApiData.userRegistration(this.userData).subscribe(
-//     (response) => {
-//       // Logic for a successful user registration goes here!
-//       // Call the userLogin() function to automatically sign in the user
-//       this.fetchApiData.userLogin({
-//         username: this.userData.Username,
-//         password: this.userData.Password
-//       }).subscribe(
-//         (response) => {
-//           // Logic for a successful user login goes here!
-//           this.dialogRef.close(); // This will close the modal on success!
-//           console.log(response);
-//           this.snackBar.open('User registered and logged in successfully!', 'OK', {
-//             duration: 2000
-//           });
-//           // Redirect the user to the movies page or any other desired page
-//           this.router.navigate(['movies']);
-//         },
-//         (error) => {
-//           console.log(error);
-//           this.snackBar.open(error, 'OK', {
-//             duration: 2000
-//           });
-//         }
-//       );
-//     },
-//     (error) => {
-//       console.log(error);
-//       this.snackBar.open(error, 'OK', {
-//         duration: 2000
-//       });
-//     }
-//   );
-// }
-
-// registerUser(): void {
-//   this.fetchApiData.userRegistration(this.userData).subscribe(
-//     (registrationResponse) => {
-//       // Logic for a successful user registration goes here!
-//       console.log(registrationResponse);
-//       this.snackBar.open('User registered successfully!', 'OK', {
-//         duration: 2000
-//       });
-
-//       // Call the userLogin() function to automatically sign in the user
-//       this.fetchApiData.userLogin({
-//         username: this.userData.Username,
-//         password: this.userData.Password
-//       }).subscribe(
-//         (loginResponse) => {
-//           // Logic for a successful user login goes here!
-//           console.log(loginResponse);
-//           this.dialogRef.close(); // This will close the modal on success!
-//           this.snackBar.open('User logged in successfully!', 'OK', {
-//             duration: 2000
-//           });
-//           // Redirect the user to the movies page or any other desired page
-//           this.router.navigate(['movies']);
-//         },
-//         (loginError) => {
-//           console.log(loginError);
-//           this.snackBar.open(loginError, 'OK', {
-//             duration: 2000
-//           });
-//         }
-//       );
-//     },
-//     (registrationError) => {
-//       console.log(registrationError);
-//       this.snackBar.open(registrationError, 'OK', {
-//         duration: 2000
-//       });
-//     }
-//   );
-// }
-
-
 }

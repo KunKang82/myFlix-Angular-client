@@ -4,6 +4,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { formatDate } from '@angular/common';
 
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -62,28 +63,24 @@ export class UserProfileComponent implements OnInit {
    * this function makes the API call to update user information
    */
   updateUserInfo(): void {
-    this.fetchApiData.editUser(this.updatedUser).subscribe((result) => {
-      console.log(result);
-      if (
-        this.user.Username !== result.Username ||
-        this.user.Password !== result.Password
-      ) {
-        localStorage.clear();
-        this.router.navigate(['welcome']);
-        this.snackBar.open(
-          'Credentials updated! Please login using your new credentials',
-          'OK',
-          {
-            duration: 2000,
-          }
-        );
-      } else {
+    this.fetchApiData.editUser(this.updatedUser).subscribe(
+      (result) => {
+        console.log(result);
+        // Update the user information in the component
+        this.user = result;
         this.snackBar.open('User information has been updated!', 'OK', {
           duration: 2000,
         });
+      },
+      (error) => {
+        console.log(error);
+        this.snackBar.open('Error occurred while updating user information', 'OK', {
+          duration: 2000,
+        });
       }
-    });
+    );
   }
+  
 
   /**
    * this function makes the API call to delete specific user data from the database 

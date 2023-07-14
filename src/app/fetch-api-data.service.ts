@@ -167,7 +167,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     const userName = localStorage.getItem('user');
     return this.http
-      .patch(apiUrl + 'users/' + userName, updatedUser, {
+      .put(apiUrl + 'users/' + userName, updatedUser, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
